@@ -1,38 +1,165 @@
 /* General Styles */
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #bad0fa;
-    color: #363b45;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-header {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    color: #333;
     text-align: center;
+    transition: background 0.5s ease-in-out;
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Current tab background */
+body.tab-weather {
+    background: url('images/Weather.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Historical tab background */
+body.tab-history {
+    background: url('images/4seasons.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* sticky header */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #2C5282;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Logo Title */
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Logo */
+.logo {
+    width: 65px;
+    height: 65px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #2C5282;
+    padding: 10px 0;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tab-button.active, .tab-button:hover {
+    background-color: #1A365D;
+}
+
+/* Tab content */
+.tab-content {
+    display: none;
+    padding: 30px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Main content */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*  Sections */
+section {
+    background: #eef2f7;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+/*  Headers */
+h2 {
+    color: #2C5282;
+    font-size: 24px;
+}
+
+/* Input Fields */
+input {
+    padding: 15px;
+    margin: 12px 0;
+    border: 2px solid #2C5282;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 500px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Buttons */
+button {
     background-color: #2C5282;
     color: white;
-    padding: 20px;
-}
-
-h1, h2 {
-    text-align: center;
-    color: #2C5282;
-}
-
-/* Weather Section */
-#weather {
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 85%;
     max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #EDF2F7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-#weather p {
-    font-size: 1.2rem;
-    color: #2C5282;
+button:hover {
+    background-color: #1E3A5A;
 }
 
 /* Footer */
@@ -41,7 +168,107 @@ footer {
     padding: 20px;
     background-color: #2C5282;
     color: white;
-    position: absolute;
     width: 100%;
+    position: relative;
     bottom: 0;
+}
+/* Responsiveness */
+
+/* Mobile  */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo-title h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    section {
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    input, button {
+        width: 95%;
+        font-size: 16px;
+    }
+
+    footer {
+        position: relative;
+        width: 100%;
+    }
+}
+
+/*  Tablet  */
+@media (min-width: 481px) and (max-width: 1024px) {
+    header {
+        padding: 12px 20px;
+        width: 100%;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .logo-title h1 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .tabs {
+        padding: 12px 5px;
+    }
+
+    .tab-button {
+        font-size: 18px;
+        padding: 12px 22px;
+    }
+
+    section {
+        max-width: 80%;
+    }
+}
+
+/*  Desktop  */
+@media (min-width: 1025px) {
+    .logo {
+        width: 65px;
+        height: 65px;
+    }
+
+    .logo-title h1 {
+        font-size: 26px;
+    }
+
+    .tabs {
+        padding: 12px 0;
+    }
+
+    .tab-button {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    section {
+        max-width: 600px;
+    }
 }

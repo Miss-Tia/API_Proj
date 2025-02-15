@@ -3,19 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Data</title>
+    <title>Tia's Weather Lookup Service</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <header>
-        <h1>Weather Info</h1>
+        <div class="logo-title">
+            <img src="images/IMG_9516.JPEG" alt="Photo of Tia Anderson smiling and posing nicely at a dinner table" class="logo"> 
+            <h1>Tia's Weather Lookup Service</h1>
+        </div>
+        <nav class="tabs">
+            <button class="tab-button active" onclick="openTab('current-weather')">Check Current Weather</button>
+            <button class="tab-button" onclick="openTab('historical-weather')">Check Past Weather</button>
+        </nav>
     </header>
-    
+
     <main>
-        <section id="weather">
-            <h2>Current Weather</h2>
-            <p id="weatherData">Fetching weather data...</p>
-        </section>
+        <!-- Current Weather -->
+        <div id="current-weather" class="tab-content active">
+            <section id="us-weather">
+                <h2>What's the Weather Today? (US)</h2>
+                <input type="text" id="us-zip" placeholder="Enter US Zip Code">
+                <button id="us-weather-btn">Get Weather</button>
+                <div id="us-weather-result"></div>
+            </section>
+        </div>
+
+        <!-- Historical Weather -->
+        <div id="historical-weather" class="tab-content">
+            <section id="us-historical">
+                <h2>Check Past Weather! (US)</h2>
+                <input type="text" id="history-zip" placeholder="Enter US Zip Code">
+                <input type="date" id="history-date">
+                <button id="history-weather-btn">Get Historical Weather</button>
+                <div id="history-weather-result"></div>
+            </section>
+        </div>
     </main>
 
     <footer>
